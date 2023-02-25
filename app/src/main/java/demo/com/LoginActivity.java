@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
     private Button buttonCreateOrder;
@@ -21,14 +22,17 @@ public class LoginActivity extends AppCompatActivity {
         editTextName = findViewById(R.id.editTextName);
         editTextPassword = findViewById(R.id.editTextPassword);
 
-        String name = editTextName.getText().toString();
-        String password = editTextPassword.getText().toString();
-
         buttonCreateOrder.setOnClickListener(view -> {
-            Intent intent = new Intent(this, CreateOrderActivity.class);
-            intent.putExtra("name", name);
-            intent.putExtra("password", password);
-            startActivity(intent);
+            String name = editTextName.getText().toString().trim(); // trim() - без пробелов
+            String password = editTextPassword.getText().toString().trim(); // trim() - без пробелов
+            if (!name.isEmpty() && !password.isEmpty()) {
+                Intent intent = new Intent(this, CreateOrderActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("password", password);
+                startActivity(intent);
+            } else {
+                Toast.makeText(this, R.string.warning_fill_fields, Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }
