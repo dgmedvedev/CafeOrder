@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/lightBrown"
+    android:background="@color/light_brown"
     tools:context=".LoginActivity">
 
 
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@color/darkBrown"
+        android:background="@color/dark_brown"
         android:text="@string/button_create_order"
         android:textColor="@color/white"
         android:textSize="24sp"

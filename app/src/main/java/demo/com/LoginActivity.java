@@ -9,22 +9,23 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button buttonCreateOrder;
+
     private EditText editTextName;
     private EditText editTextPassword;
+    String name;
+    String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        buttonCreateOrder = findViewById(R.id.buttonCreateOrder);
+        Button buttonCreateOrder = findViewById(R.id.buttonCreateOrder);
         editTextName = findViewById(R.id.editTextName);
         editTextPassword = findViewById(R.id.editTextPassword);
 
         buttonCreateOrder.setOnClickListener(view -> {
-            String name = editTextName.getText().toString().trim(); // trim() - без пробелов
-            String password = editTextPassword.getText().toString().trim(); // trim() - без пробелов
+            name = editTextName.getText().toString().trim(); // trim() - без пробелов
+            password = editTextPassword.getText().toString().trim(); // trim() - без пробелов
             if (!name.isEmpty() && !password.isEmpty()) {
                 Intent intent = new Intent(this, CreateOrderActivity.class);
                 intent.putExtra("name", name);
